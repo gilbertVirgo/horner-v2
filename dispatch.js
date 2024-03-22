@@ -1,8 +1,10 @@
+import config from "./config.js";
 import dotenv from "dotenv";
 import getDB from "./getDB.js";
 import getReadableProgress from "./getReadableProgress.js";
 import { publicIpv4 } from "public-ip";
 import transporter from "./email-transporter.js";
+import updateDB from "./updateDB.js";
 dotenv.config();
 
 const db = getDB();
@@ -24,4 +26,19 @@ publicIpv4().then((ip) => {
 			}
 		);
 	}
+
+	// Increase persistent columns regardless of response to email
+	for (let userIndex in db.users) {
+		const { progress: currentProgress } = db.users[userIndex];
+
+		if (db.users[userIndex])
+			db.users[userIndex].progress = currentProgress.map(
+				(columnValue, columnIndex) =>
+					config.persistentColumns.includes(columnIndex)
+						? columnValue + 1
+						: columnValue
+			);
+	}
+
+	updateDB(db);
 });

@@ -35,7 +35,7 @@ markAllButton.addEventListener("click", () => {
 submitButton.addEventListener("click", () => {
     window.location.href = "/${
 		user.name
-	}/update/" + btoa(Array.from(checkboxes).map((checkbox, index) => Number(checkbox.checked)))
+	}/update/" + btoa(Array.from(checkboxes).map((checkbox, index) => checkbox.disabled ? 0 : Number(checkbox.checked)));
 });
 </script>
 `;
