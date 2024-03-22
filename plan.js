@@ -6,6 +6,16 @@ export default [
 		["Numbers", 36],
 		["Deuteronomy", 34],
 	],
+	[["Psalms", 150]],
+	[
+		["Romans", 16],
+		["1 Corinthians", 16],
+		["2 Corinthians", 13],
+		["Galatians", 6],
+		["Ephesians", 6],
+		["Philippians", 4],
+		["Colossians", 4],
+	],
 	[
 		["Joshua", 24],
 		["Judges", 21],
@@ -22,7 +32,6 @@ export default [
 		["Nehemiah", 13],
 		["Esther", 10],
 	],
-	[["Psalms", 150]],
 	[["Proverbs", 31]],
 	[
 		["Job", 42],
@@ -57,15 +66,6 @@ export default [
 		["John", 21],
 	],
 	[["Acts", 28]],
-	[
-		["Romans", 16],
-		["1 Corinthians", 16],
-		["2 Corinthians", 13],
-		["Galatians", 6],
-		["Ephesians", 6],
-		["Philippians", 4],
-		["Colossians", 4],
-	],
 	[
 		["1 Thessalonians", 5],
 		["2 Thessalonians", 3],

@@ -50,6 +50,11 @@ export default ({ title, content }) => `
         height: 22px;
     }
 
+    input[type="checkbox"]:checked + span {
+        text-decoration: line-through;
+        color: grey;
+    }
+
     button {
         font-size: 16px;
     }

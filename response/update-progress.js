@@ -1,3 +1,4 @@
+import config from "../config.js";
 import getReadableProgress from "../getReadableProgress.js";
 
 export default (user) => `
@@ -9,7 +10,11 @@ export default (user) => `
 		.map(
 			(chapter, columnIndex) => `
     <li>
-        <input type="checkbox" value="${columnIndex}" />
+        <input type="checkbox" value="${columnIndex}" ${
+				config.persistentColumns.includes(columnIndex)
+					? "checked disabled"
+					: ""
+			} />
         <span>${chapter}</span>
     </li>
 `
@@ -19,15 +24,13 @@ export default (user) => `
 <button type="button" id="submit-button">Submit</button>
 
 <script>
-const checkboxes = document.querySelectorAll("input[type='checkbox']");
-
-const markAllButton = document.getElementById("mark-all-button");
+const checkboxes = document.querySelectorAll("input[type='checkbox']"),
+    markAllButton = document.getElementById("mark-all-button"),
+    submitButton = document.getElementById("submit-button");
 
 markAllButton.addEventListener("click", () => {
     for(const checkbox of checkboxes) checkbox.checked = true;
 });
-
-const submitButton = document.getElementById("submit-button");
 
 submitButton.addEventListener("click", () => {
     window.location.href = "/${
