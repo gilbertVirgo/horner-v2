@@ -10,4 +10,4 @@ In the background I'm running ./server.js (using pm2).
 # Testing
 
 You can run dispatch with a `--to` argument.
-I could run a dispatch test to my email only using `node ./dispatch.js --to=gilbertjvirgo@gmail.com` assuming I'm a user in the db.
+I could run a dispatch test to my email only using `node ./dispatch.js --to=gilbertjvirgo@gmail.com` assuming there is a user with that email address in the db.
