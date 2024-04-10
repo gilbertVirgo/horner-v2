@@ -11,7 +11,6 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"canvas": "^2.11.2",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.1",
 		"html-pdf-node": "^1.0.8",
