@@ -18,17 +18,19 @@ publicIpv4().then((ip) => {
 		db.users = db.users.filter((user) => user.email === argv.to);
 	}
 
-	// Increase persistent columns
-	for (let userIndex in db.users) {
-		const { progress: currentProgress } = db.users[userIndex];
+	if (argv.to === undefined) {
+		// Increase persistent columns
+		for (let userIndex in db.users) {
+			const { progress: currentProgress } = db.users[userIndex];
 
-		if (db.users[userIndex])
-			db.users[userIndex].progress = currentProgress.map(
-				(columnValue, columnIndex) =>
-					config.persistentColumns.includes(columnIndex)
-						? columnValue + 1
-						: columnValue
-			);
+			if (db.users[userIndex])
+				db.users[userIndex].progress = currentProgress.map(
+					(columnValue, columnIndex) =>
+						config.persistentColumns.includes(columnIndex)
+							? columnValue + 1
+							: columnValue
+				);
+		}
 	}
 
 	updateDB(db);
