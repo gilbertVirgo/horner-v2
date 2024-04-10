@@ -1,5 +1,4 @@
 import config from "./config.js";
-import { createCanvas } from "canvas";
 import dotenv from "dotenv";
 import express from "express";
 import getDB from "./getDB.js";
@@ -25,24 +24,6 @@ server.get("/:username/progress", (req, res) => {
 });
 
 server.get("/:username/print", (req, res) => {
-	const user = db.users.find((user) => user.name === req.params.username),
-		canvas = createCanvas(
-			config.printDimensions.width,
-			config.printDimensions.height
-		),
-		context = canvas.getContext("2d");
-
-	const usableHeight = config.printDimensions.height - config.margin * 2,
-		columnLineHeight = usableHeight / user.progress.length;
-
-	getReadableProgress(user.progress).forEach((column, columnIndex) => {
-		context.fillText(
-			column,
-			config.margin,
-			config.margin + columnIndex * columnLineHeight
-		);
-	});
-
 	res.send();
 });
 
