@@ -1,19 +1,23 @@
 import config from "../config.js";
 import getReadableProgress from "../getReadableProgress.js";
 
-export default (user) => /*html*/ `
+const html = String.raw;
+
+export default (user) => html`
 	<h1>Update your progress</h1>
 	<p>Select which chapters you've read today.</p>
 	<button type="button" id="mark-all-button">Mark all as read</button>
 	<ul>
 		${getReadableProgress(user.progress)
 			.map(
-				(chapter, columnIndex) => /*html*/ `
+				(chapter, columnIndex) => html`
 					<li>
 						<input
 							type="checkbox"
 							value="${columnIndex}"
-							${config.persistentColumns.includes(columnIndex) ? "checked disabled" : ""}
+							${config.persistentColumns.includes(columnIndex)
+								? "checked disabled"
+								: ""}
 						/>
 						<span>${chapter}</span>
 					</li>
@@ -22,6 +26,9 @@ export default (user) => /*html*/ `
 			.join("")}
 	</ul>
 	<button type="button" id="submit-button">Submit</button>
+	<a href="https://esv.org/${readableProgress.join(";").replace(/ /g, "+")}"
+		>Listen on esv.org</a
+	>
 
 	<script>
 		const checkboxes = document.querySelectorAll("input[type='checkbox']"),
