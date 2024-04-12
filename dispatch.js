@@ -18,7 +18,7 @@ publicIpv4().then((ip) => {
 		db.users = db.users.filter((user) => user.email === argv.to);
 	}
 
-	if (argv.to === undefined) {
+	if (!argv.to) {
 		// Increase persistent columns
 		for (let userIndex in db.users) {
 			const { progress: currentProgress } = db.users[userIndex];
