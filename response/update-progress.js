@@ -26,7 +26,11 @@ export default (user) => html`
 			.join("")}
 	</ul>
 	<button type="button" id="submit-button">Submit</button>
-	<a href="https://esv.org/${readableProgress.join(";").replace(/ /g, "+")}"
+	<a
+		target="_blank"
+		href="https://esv.org/${getReadableProgress(user.progress)
+			.join(";")
+			.replace(/ /g, "+")}"
 		>Listen on esv.org</a
 	>
 
