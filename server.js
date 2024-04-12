@@ -9,11 +9,11 @@ import updateDB from "./updateDB.js";
 
 dotenv.config();
 
-const server = express(),
-	db = getDB();
+const server = express();
 
 server.get("/:username/progress", (req, res) => {
-	const user = db.users.find((user) => user.name === req.params.username);
+	const db = getDB(),
+		user = db.users.find((user) => user.name === req.params.username);
 
 	res.send(
 		surroundWithTemplate({
@@ -28,7 +28,8 @@ server.get("/:username/print", (req, res) => {
 });
 
 server.get("/:username/update/:encodedProgressModifier", (req, res) => {
-	const progressModifier = JSON.parse(
+	const db = getDB(),
+		progressModifier = JSON.parse(
 			`[${atob(req.params.encodedProgressModifier)}]`
 		),
 		userIndex = db.users.findIndex(
