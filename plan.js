@@ -8,6 +8,23 @@ export default [
 		["Deuteronomy", 34],
 	],
 
+	// Paul
+	[
+		["Romans", 16],
+		["1 Corinthians", 16],
+		["2 Corinthians", 13],
+		["Galatians", 6],
+		["Ephesians", 6],
+		["Philippians", 4],
+		["Colossians", 4],
+		["1 Thessalonians", 5],
+		["2 Thessalonians", 3],
+		["1 Timothy", 6],
+		["2 Timothy", 4],
+		["Titus", 3],
+		["Philemon", 1],
+	],
+
 	// History
 	[
 		["Joshua", 24],
@@ -61,23 +78,6 @@ export default [
 		["Luke", 24],
 		["John", 21],
 		["Acts", 28],
-	],
-
-	// Paul
-	[
-		["Romans", 16],
-		["1 Corinthians", 16],
-		["2 Corinthians", 13],
-		["Galatians", 6],
-		["Ephesians", 6],
-		["Philippians", 4],
-		["Colossians", 4],
-		["1 Thessalonians", 5],
-		["2 Thessalonians", 3],
-		["1 Timothy", 6],
-		["2 Timothy", 4],
-		["Titus", 3],
-		["Philemon", 1],
 	],
 
 	// Everything else
